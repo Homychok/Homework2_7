@@ -75,7 +75,7 @@ public class Bus extends Transport<CategoryD> {
         private String capacity;
         Integer busCapacity;
 
-        private ClassificationBusCapacity(Integer minCapacity, Integer maxCapacity) {
+        ClassificationBusCapacity(Integer minCapacity, Integer maxCapacity) {
             this.setCapacity(minCapacity, maxCapacity);
         }
 

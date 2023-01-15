@@ -8,8 +8,8 @@ public class Tracks extends Transport<CategoryC> {
     LoadCapacity trackLoadCapacity;
     private String type;
 
-    public Tracks(String brand, String model, Double engineVolume, LoadCapacity trackLoadCapacity, String type) {
-        super(brand, model, engineVolume, type);
+    public Tracks(String brand, String model, Double engineVolume, LoadCapacity trackLoadCapacity, String type, String mechanic) {
+        super(brand, model, engineVolume, type, mechanic);
         this.trackLoadCapacity = trackLoadCapacity;
     }
 

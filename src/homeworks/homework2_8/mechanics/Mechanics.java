@@ -2,7 +2,7 @@ package homeworks.homework2_8.mechanics;
 
 import homeworks.homework2_8.transport.Transport;
 
-public class Mechanics extends Transport {
+public class Mechanics {
 public String fullName;
 public String companyName;
 
@@ -36,7 +36,7 @@ public String companyName;
                 '}';
     }
 
-    @Override
+
     public void printType() {
 
     }

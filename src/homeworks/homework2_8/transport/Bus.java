@@ -11,8 +11,8 @@ public class Bus extends Transport<CategoryD> {
     ClassificationBusCapacity minCapacity;
     ClassificationBusCapacity maxCapacity;
 
-    public Bus(String brand, String model, Double engineVolume, int busCapacity, String type) {
-        super(brand, model, engineVolume, type);
+    public Bus(String brand, String model, Double engineVolume, int busCapacity, String type, String mechanic) {
+        super(brand, model, engineVolume, type, mechanic);
         this.busCapacity = busCapacity;
     }
 

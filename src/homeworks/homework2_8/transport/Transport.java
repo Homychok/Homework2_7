@@ -1,11 +1,7 @@
 package homeworks.homework2_8.transport;
 
-import homeworks.homework2_8.mechanics.Mechanics;
 import homeworks.homework2_8.transport.interfaces.Competing;
 import homeworks.homework2_8.drivers.Driver;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public abstract class Transport<T extends Driver> implements Competing {
     private String type;
@@ -13,8 +9,9 @@ public abstract class Transport<T extends Driver> implements Competing {
     protected String model;
     protected Double engineVolume;
     protected T driver;
+    public String mechanic;
 
-    public Transport(String brand, String model, Double engineVolume, String type) {
+    public Transport(String brand, String model, Double engineVolume, String type, String mechanic) {
         if (brand != null && !brand.isBlank()) {
             this.brand = brand;
         }
@@ -93,6 +90,9 @@ public abstract class Transport<T extends Driver> implements Competing {
     public abstract void printType();
 
     public void getCheckedOutDiagnostic() {
+    }
+    public String getMechanic(){
+        return mechanic;
     }
 
     public Boolean getCheckedOut() throws MyException {

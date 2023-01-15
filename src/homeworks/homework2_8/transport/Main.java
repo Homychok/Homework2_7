@@ -32,20 +32,27 @@ public class Main {
         }
 
     }
+//    public static void searching (){
+//        if () {
+//            System.out.println(phoneBook.get("Dmitriy"));
+//        } else {
+//            System.out.println("Контакт не найден");
+//        }
+//    }
 
     public static void main(String[] args) {
-        Bus bus1 = new Bus("Reno", "A5", 2.1, 1, "busType");
-        Bus bus2 = new Bus("Reno", "Logan", 3.7, 49, "busType");
-        Bus bus3 = new Bus("Reno", "F4", 4.5, 35, "");
-        Bus bus4 = new Bus("Reno", "A6", 7.2, 150, "busType");
-        Cars car1 = new Cars("Lada", "Granta", 3.4, BodyType.SUV, "carType");
-        Cars car2 = new Cars("Lada", "Vesta1", 4.4, BodyType.VAN, "carType");
-        Cars car3 = new Cars("Lada", "X-Ray", 5.4, BodyType.MINIVAN, "carType");
-        Cars car4 = new Cars("Lada", "Vesta2", 6.4, BodyType.HATCHBACK, "carType");
-        Tracks track1 = new Tracks("Kia", "A1", 10.1, LoadCapacity.N1, "trackType");
-        Tracks track2 = new Tracks("Kia", "A1", 11.1, LoadCapacity.N2, "trackType");
-        Tracks track3 = new Tracks("Kia", "A1", 12.1, LoadCapacity.N2, "trackType");
-        Tracks track4 = new Tracks("Kia", "A1", 13.1, LoadCapacity.N3, "trackType");
+        Bus bus1 = new Bus("Reno", "A5", 2.1, 1, "busType", "Василий");
+        Bus bus2 = new Bus("Reno", "Logan", 3.7, 49, "busType", "Петр");
+        Bus bus3 = new Bus("Reno", "F4", 4.5, 35, "", "Иван");
+        Bus bus4 = new Bus("Reno", "A6", 7.2, 150, "busType", "Петр");
+        Cars car1 = new Cars("Lada", "Granta", 3.4, BodyType.SUV, "carType", "Евгений");
+        Cars car2 = new Cars("Lada", "Vesta1", 4.4, BodyType.VAN, "carType", "Петр");
+        Cars car3 = new Cars("Lada", "X-Ray", 5.4, BodyType.MINIVAN, "carType", "Василий");
+        Cars car4 = new Cars("Lada", "Vesta2", 6.4, BodyType.HATCHBACK, "carType", "Иван");
+        Tracks track1 = new Tracks("Kia", "A1", 10.1, LoadCapacity.N1, "trackType", "Евгений");
+        Tracks track2 = new Tracks("Kia", "A1", 11.1, LoadCapacity.N2, "trackType", "Василий");
+        Tracks track3 = new Tracks("Kia", "A1", 12.1, LoadCapacity.N2, "trackType", "Евгений");
+        Tracks track4 = new Tracks("Kia", "A1", 13.1, LoadCapacity.N3, "trackType", "Петр");
         CategoryB carDriver1 = new CategoryB(1, "Ivan Ivanovich", true);
         CategoryB carDriver2 = new CategoryB(2, "Ivan Petrovich", true);
         CategoryB carDriver3 = new CategoryB(3, "Ivan Kuzmichov", true);
@@ -104,11 +111,11 @@ public class Main {
         track1.getCheckedOutDiagnostic();
         carDriver2.getDrivingLicence();
 
-//        List<Mechanics> mechanicsList = new ArrayList<>();
-//        mechanicsList.add(mechanics1);
-//        mechanicsList.add(mechanics2);
-//        mechanicsList.add(mechanics3);
-//        mechanicsList.add(mechanics4);
+        List<Mechanics> mechanicsList = new ArrayList<>();
+        mechanicsList.add(mechanics1);
+        mechanicsList.add(mechanics2);
+        mechanicsList.add(mechanics3);
+        mechanicsList.add(mechanics4);
         List<Transport> transportsList = new ArrayList<>();
         transportsList.add(car1);
         transportsList.add(bus3);
@@ -127,16 +134,27 @@ public class Main {
         mixDrivers.put(mechanics2,car1);
         mixDrivers.put(mechanics1,bus4);
         mixDrivers.put(mechanics3,track4);
-        void deQueue(){
-            int back = -1;
-            int front = -1;
-            if(car4.isEmpty()){
-                System.out.println("Queue is empty. Nothing to dequeue");
-            } else if (front == back){
-                front = back = -1;
-            } else {
-                front++;
-            }
+        for(Map.Entry<Mechanics, Transport> mixDriversEntry:mixDrivers.entrySet()) {
+            System.out.println("Ключ " + mixDriversEntry.getKey().getCompanyName() + " : " + mixDrivers);
         }
+        Set<Driver> set = new HashSet<>(driversList);
+        Iterator<Driver> iterator = set.iterator();
+        while (iterator.hasNext()){
+            System.out.println(set.iterator().next().getFullName());
+        }
+//        void deQueue(){
+//            int back = -1;
+//            int front = -1;
+//            if(car4.isEmpty()){
+//                System.out.println("Queue is empty. Nothing to dequeue");
+//            } else if (front == back){
+//                front = back = -1;
+//            } else {
+//                front++;
+//            }
+        printAuto(car1);
+        }
+        public static void printAuto(Transport transport) {
+            System.out.println("Машину ведет " + transport.getDriver() + " водитель и у нее: механик - " + transport.getMechanic());
     }
 }

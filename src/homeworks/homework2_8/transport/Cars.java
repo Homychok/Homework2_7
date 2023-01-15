@@ -8,8 +8,8 @@ public class Cars extends Transport<CategoryB> {
     protected String type;
     BodyType bodyType;
 
-    public Cars(String brand, String model, Double engineVolume, BodyType bodyType, String type) {
-        super(brand, model, engineVolume, type);
+    public Cars(String brand, String model, Double engineVolume, BodyType bodyType, String type, String mechanic) {
+        super(brand, model, engineVolume, type, mechanic);
         this.bodyType = bodyType;
     }
 

@@ -2,6 +2,8 @@ package homeworks.homework2_8.mechanics;
 
 import homeworks.homework2_8.transport.Transport;
 
+import java.util.Objects;
+
 public class Mechanics {
 public String fullName;
 public String companyName;
@@ -26,6 +28,19 @@ public String companyName;
     }
     public void fixTheCar () {
 
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Mechanics)) return false;
+        Mechanics mechanics = (Mechanics) o;
+        return Objects.equals(getFullName(), mechanics.getFullName()) && Objects.equals(getCompanyName(), mechanics.getCompanyName());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getFullName(), getCompanyName());
     }
 
     @Override

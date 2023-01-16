@@ -129,13 +129,13 @@ public class Main {
         //mechanicsList.forEach((mechanics)-> System.out.println(mechanics));
         transportsList.forEach((Cars)-> System.out.println(Cars));
         driversList.forEach((Driver)-> System.out.println(Driver));
-        Map<Mechanics,Transport> mixDrivers = new HashMap<>();
-        mixDrivers.put(mechanics4,car4);
-        mixDrivers.put(mechanics2,car1);
-        mixDrivers.put(mechanics1,bus4);
-        mixDrivers.put(mechanics3,track4);
-        for(Map.Entry<Mechanics, Transport> mixDriversEntry:mixDrivers.entrySet()) {
-            System.out.println("Ключ " + mixDriversEntry.getKey().getCompanyName() + " : " + mixDrivers);
+        Map<Transport,Mechanics> mixDrivers = new HashMap<>();
+        mixDrivers.put(car4,mechanics4);
+        mixDrivers.put(car1,mechanics2);
+        mixDrivers.put(bus4,mechanics1);
+        mixDrivers.put(track4,mechanics3);
+        for(Map.Entry<Transport, Mechanics> mixDriversEntry:mixDrivers.entrySet()) {
+            System.out.println("Ключ " + mixDriversEntry.getKey().getBrand() + " : " + mixDrivers);
         }
         Set<Driver> set = new HashSet<>(driversList);
         Iterator<Driver> iterator = set.iterator();

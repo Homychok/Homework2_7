@@ -3,6 +3,8 @@ package homeworks.homework2_8.transport;
 import homeworks.homework2_8.transport.interfaces.Competing;
 import homeworks.homework2_8.drivers.Driver;
 
+import java.util.Objects;
+
 public abstract class Transport<T extends Driver> implements Competing {
     private String type;
     protected String brand;
@@ -103,5 +105,18 @@ public abstract class Transport<T extends Driver> implements Competing {
             System.out.println("Необходимо указать тип прав! ");
             return s;
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Transport)) return false;
+        Transport<?> transport = (Transport<?>) o;
+        return Objects.equals(type, transport.type) && Objects.equals(getBrand(), transport.getBrand()) && Objects.equals(getModel(), transport.getModel()) && Objects.equals(getEngineVolume(), transport.getEngineVolume()) && Objects.equals(getDriver(), transport.getDriver()) && Objects.equals(getMechanic(), transport.getMechanic());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(type, getBrand(), getModel(), getEngineVolume(), getDriver(), getMechanic());
     }
 }

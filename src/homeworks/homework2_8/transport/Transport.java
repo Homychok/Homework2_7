@@ -1,11 +1,9 @@
 package homeworks.homework2_8.transport;
 
-import homeworks.homework2_8.mechanics.Mechanics;
 import homeworks.homework2_8.transport.interfaces.Competing;
 import homeworks.homework2_8.drivers.Driver;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Objects;
 
 public abstract class Transport<T extends Driver> implements Competing {
     private String type;
@@ -13,8 +11,9 @@ public abstract class Transport<T extends Driver> implements Competing {
     protected String model;
     protected Double engineVolume;
     protected T driver;
+    public String mechanic;
 
-    public Transport(String brand, String model, Double engineVolume, String type) {
+    public Transport(String brand, String model, Double engineVolume, String type, String mechanic) {
         if (brand != null && !brand.isBlank()) {
             this.brand = brand;
         }
@@ -94,6 +93,9 @@ public abstract class Transport<T extends Driver> implements Competing {
 
     public void getCheckedOutDiagnostic() {
     }
+    public String getMechanic(){
+        return mechanic;
+    }
 
     public Boolean getCheckedOut() throws MyException {
         Boolean s = this.driver.getDrivingLicence();
@@ -103,5 +105,18 @@ public abstract class Transport<T extends Driver> implements Competing {
             System.out.println("Необходимо указать тип прав! ");
             return s;
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Transport)) return false;
+        Transport<?> transport = (Transport<?>) o;
+        return Objects.equals(type, transport.type) && Objects.equals(getBrand(), transport.getBrand()) && Objects.equals(getModel(), transport.getModel()) && Objects.equals(getEngineVolume(), transport.getEngineVolume()) && Objects.equals(getDriver(), transport.getDriver()) && Objects.equals(getMechanic(), transport.getMechanic());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(type, getBrand(), getModel(), getEngineVolume(), getDriver(), getMechanic());
     }
 }
